@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': / 'bed0d8ec53msh81840c2ee0d4d41p1e02dcjsn8fa47884a178',
+            'X-RapidAPI-Key':  'bed0d8ec53msh81840c2ee0d4d41p1e02dcjsn8fa47884a178',
             'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
         }
     };
     const airQualityOptions = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': / '9e881205acmshc40830a315dcb9fp1b8245jsnce2a62178afc',
+            'X-RapidAPI-Key':  '9e881205acmshc40830a315dcb9fp1b8245jsnce2a62178afc',
             'X-RapidAPI-Host': 'air-quality-by-api-ninjas.p.rapidapi.com'
         }
     };
