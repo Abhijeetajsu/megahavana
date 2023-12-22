@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aspects of Weather</title>
+        <style>
+                body {
+                        font-family: 'Arial', sans-serif;
+                        margin: 20px;
+                        line-height: 1.6;
+                        color: #333;
+                        background: linear-gradient(147deg, #f6f623 0%, #26f2b5 74%);
+                        animation: backgroundAnimation 10s infinite alternate;
+                }
+
+                @keyframes backgroundAnimation {
+                        0% {
+                                background-position: 0% 50%;
+                        }
+
+                        100% {
+                                background-position: 100% 50%;
+                        }
+                }
+
+                h1 {
+                        color: #fff;
+                        text-align: center;
+                        margin-bottom: 20px;
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                }
+
+                dt {
+                        font-weight: bold;
+                        margin-top: 10px;
+                        color: #fff;
+                }
+
+                dd {
+                        margin-bottom: 10px;
+                        margin-left: 20px;
+                        color: #f2f2f2;
+                }
+
+                p {
+                        font-style: italic;
+                        color: #f8f8f8;
+                        text-align: center;
+                        margin-top: 20px;
+                }
+
+                dt::after {
+                        content: ":";
+                }
+
+                body::before {
+                        content: "\201C";
+                        font-size: 3em;
+                        color: #fff;
+                        position: absolute;
+                        left: 10px;
+                        top: 10px;
+                }
+
+                body::after {
+                        content: "\201D";
+                        font-size: 3em;
+                        color: #fff;
+                        position: absolute;
+                        right: 10px;
+                        bottom: 10px;
+                }
+
+                nav {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 80px;
+                        height: 100vh;
+                        background-color: #333;
+                        padding-top: 20px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        z-index: 1000;
+                }
+
+                nav ul {
+                        list-style-type: none;
+                        padding: 0;
+                }
+
+                nav ul li {
+                        font-size: 20px;
+                        font-family: sans-serif;
+                        background-color: white;
+                        border: 2px solid black;
+                        letter-spacing: 0.1em;
+                        width: 7em;
+                        height: 1.5em;
+                        line-height: 1.5em;
+                        position: relative;
+                        overflow: hidden;
+                        margin: 0.5em;
+                        cursor: pointer;
+                }
+
+                nav ul li span {
+                        color: white;
+                        mix-blend-mode: difference;
+                }
+
+                nav ul li::before {
+                        content: '';
+                        position: absolute;
+                        width: 1.5em;
+                        height: inherit;
+                        background-color: black;
+                        border-radius: 50%;
+                        top: 0;
+                        left: -0.75em;
+                        transition: 0.5s ease-out;
+                }
+
+                nav ul li:hover::before {
+                        transform: scale(7);
+                }
+
+                body {
+                        margin-left: 500px;
+                        padding-right: 300px;
+                }
+
+                body {
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        margin: 20px;
+                        background-color: #f8f9fa;
+                        color: #333;
+                        line-height: 1.6;
+                }
+
+                h1 {
+                        color: #007bff;
+                        text-align: center;
+                        margin-bottom: 30px;
+                }
+
+                dl {
+                        background-color: #fff;
+                        border-radius: 8px;
+                        padding: 20px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                        margin-bottom: 30px;
+                }
+
+                dt {
+                        font-weight: bold;
+                        font-size: 1.2em;
+                        margin-top: 20px;
+                        color: #007bff;
+                }
+
+                dd {
+                        margin-bottom: 10px;
+                        font-size: 1.1em;
+                        color: #333;
+                }
+
+                * {
+                        margin: 0;
+                        padding: 0;
+                        font-family: sans-serif;
+                }
+
+                @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+                * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                        font-family: "Poppins", sans-serif;
+                }
+
+                html,
+                body {
+                        display: grid;
+                        height: 100%;
+                        width: 100%;
+                        place-items: center;
+                        text-align: center;
+                        background: linear-gradient(147deg, #f6f623 0%, #26f2b5 74%);
+                }
+
+                ::selection {
+                        color: #fff;
+                        background: #42ff7b;
+                }
+
+                nav {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 80px;
+                        height: 100vh;
+                        background-color: #333;
+                        padding-top: 20px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        z-index: 1000;
+                }
+
+                nav ul {
+                        list-style-type: none;
+                        padding: 0;
+                }
+
+                nav ul li {
+                        font-size: 20px;
+                        font-family: sans-serif;
+                        background-color: white;
+                        border: 2px solid black;
+                        letter-spacing: 0.1em;
+                        width: 7em;
+                        height: 1.5em;
+                        line-height: 1.5em;
+                        position: relative;
+                        overflow: hidden;
+                        margin: 0.5em;
+                        cursor: pointer;
+                }
+
+                nav ul li span {
+                        color: white;
+                        mix-blend-mode: difference;
+                }
+
+                nav ul li::before {
+                        content: '';
+                        position: absolute;
+                        width: 1.5em;
+                        height: inherit;
+                        background-color: black;
+                        border-radius: 50%;
+                        top: 0;
+                        left: -0.75em;
+                        transition: 0.5s ease-out;
+                }
+
+                nav ul li:hover::before {
+                        transform: scale(7);
+                }
+
+                body {
+                        margin-left: 450px;
+                        padding-right: 300px;
+                }
+
+                body,
+                html {
+                        scroll-behavior: smooth;
+                }
+
+                header {
+                        background: linear-gradient(147deg, #f6f623 0%, #8dff79 74%);
+                        color: #fff;
+                        text-align: center;
+                        padding: 20px 0;
+                        transition: background 0.5s ease-in-out;
+                }
+
+                section {
+                        max-width: 800px;
+                        margin: 20px auto;
+                        padding: 20px;
+                        background: #fff;
+                        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                        border-radius: 15px;
+                        transition: box-shadow 0.5s ease-in-out;
+                }
+
+                img {
+                        max-width: 100%;
+                        height: auto;
+                        display: block;
+                        margin: 20px auto;
+                        border-radius: 10px;
+                        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+                        transition: transform 0.5s ease-in-out;
+                }
+
+                h2 {
+                        color: #ff66b2;
+                        border-bottom: 2px solid #ff66b2;
+                        padding-bottom: 5px;
+                        margin-top: 20px;
+                }
+
+                p {
+                        line-height: 1.6;
+                        margin-bottom: 15px;
+                        color: #555;
+                }
+
+                input[type="text"] {
+                        width: 100%;
+                        padding: 15px;
+                        margin: 20px 0;
+                        box-sizing: border-box;
+                        border: 2px solid #3399ff;
+                        border-radius: 10px;
+                        transition: border-color 0.5s ease-in-out;
+                }
+
+                input[type="text"]:focus {
+                        border-color: #ffcc00;
+                }
+
+                button {
+                        background: #ff66b2;
+                        color: #fff;
+                        padding: 15px;
+                        border: none;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: background 0.5s ease-in-out;
+                }
+
+                button:hover {
+                        background: #ffcc00;
+                        transform: scale(1.05);
+                }
+
+                footer {
+                        color: #fff;
+                        text-align: center;
+                        padding: 10px;
+                        position: fixed;
+                        bottom: 0;
+                        width: 100%;
+                        padding-right: 550px;
+                }
+
+                @media (hover: hover) {
+                        img:hover {
+                                transform: scale(1.1);
+                        }
+                }
+
+                @keyframes fadeIn {
+                        from {
+                                opacity: 0;
+                        }
+
+                        to {
+                                opacity: 1;
+                        }
+                }
+
+                section,
+                img,
+                input,
+                button {
+                        animation: fadeIn 1s ease;
+                }
+        </style>
+</head>
+
+<body>
+        <nav>
+                <ul>
+                        <li><a href="index.html"><span>Home Main</span></a></li>
+                        <li><a href="#home"><span>Home</span></a></li>
+                        <li><a href="#system"><span>System</span></a></li>
+                        <li><a href="#phenomena"><span>Phenomena</span></a></li>
+                        <li><a href="about this app.html"><span>Weather</span></a></li>
+                        <li><a href="page1.html"><span>Aspects WX</span></a></li>
+                        <li><a href="weatherformation.html"><span>WX-Form?</span></a></li>
+                        <li><a href="other form.html"><span>WX-O-Form?</span></a></li>
+                </ul>
+        </nav>
+        <main>
+                <h1 id="home">Let's derive into more detailed aspects of weather:</h1>
+                <h1>Atmospheric Composition:</h1>
+                <dt>Gases in the Atmosphere:</dt>
+                <dd>Nitrogen (about 78%)
+                        Oxygen (about 21%)
+                        Argon, carbon dioxide, neon, helium, methane, krypton, hydrogen, and xenon (trace amounts)</dd>
+                <h1>Variable Gases:</h1>
+                <dt>Water vapor: </dt>
+                <dd>Highly variable and plays a key role in weather phenomena.
+                        Carbon dioxide: A greenhouse gas affecting temperature.</dd>
+                <h1>Energy Transfer and Radiation:</h1>
+                <dt>Solar Radiation:</dt>
+                <dd>Sunlight is the primary source of energy for Earth's weather systems.
+                        The sun emits energy in the form of electromagnetic radiation.</dd>
+                <dt>Absorption and Reflection:</dt>
+                <dd>Earth's surface absorbs solar radiation, warming the atmosphere.
+                        Some energy is reflected back to space by clouds, the atmosphere, and reflective surfaces.</dd>
+                <h1>
+                        Atmospheric Layers:</h1>
+                <dt>Troposphere:</dt>
+                <dd>
+                        The layer closest to Earth's surface.
+                        Where weather events, including clouds and precipitation, occur.</dd>
+                <dt>Stratosphere:</dt>
+                <dd>Contains the ozone layer, which absorbs and scatters ultraviolet solar radiation.</dd>
+                <dt>
+                        Mesosphere:</dt>
+                <dd>
+                        Temperatures decrease with altitude.
+                        Where meteors burn up upon entering Earth's atmosphere.</dd>
+                <dt>Thermosphere:</dt>
+                <dd>High temperatures due to the absorption of solar radiation.
+                        Home to the ionosphere, important for radio communication.</dd>
+                <dt>Exosphere:</dt>
+                <dd>The outermost layer where atmospheric particles can escape into space.</dd>
+                <h1>Atmospheric Circulation:</h1>
+                <dt>Hadley Cells:
+                </dt>
+                <dd>Convection currents near the equator, rising warm air, and descending cool air.</dd>
+                <dt>Ferrel Cells and Polar Cells:</dt>
+                <dd>Convection currents between 30° and 60° latitude and near the poles.</dd>
+                <dt>Trade Winds, Westerlies, and Polar Easterlies:</dt>
+                <dd>Surface winds resulting from the global circulation pattern.</dd>
+                <h1 id="system">Weather Systems:</h1>
+                <dt>Low-Pressure Systems:</dt>
+                <dd>Air converges and rises, leading to cloud formation and precipitation.</dd>
+                <dt>High-Pressure Systems:</dt>
+                <dd>Air descends, inhibiting cloud formation and promoting fair weather.</dd>
+                <dt>
+                        Fronts:</dt>
+                <dd>Boundaries between air masses with different temperatures and humidity levels.</dd>
+                <h1>Precipitation Types:</h1>
+                <dt>Rain:</dt>
+                <dd>Liquid water droplets falling from clouds.</dd>
+                <dt>Snow:</dt>
+                <dd>Ice crystals or snowflakes falling from clouds.</dd>
+                <dt>
+                        Sleet:</dt>
+                <dd>Frozen raindrops or partially melted snowflakes.</dd>
+                <dt>Hail:</dt>
+                <dd>Round pellets of ice formed in severe thunderstorms.</dd>
+                <h1 id="phenomena">Severe Weather Phenomena:</h1>
+                <dt>Tornadoes:</dt>
+                <dd>Violently rotating columns of air extending from a thunderstorm.</dd>
+                <dt>Hurricanes/Cyclones/Typhoons:</dt>
+                <dd>Large, powerful tropical storms with strong winds and heavy rain.</dd>
+                <dt>Thunderstorms:</dt>
+                <dd>Produce thunder, lightning, and often heavy rain.</dd>
+                <h1>Instruments and Measurement:</h1>
+                <dt>Barometer:</dt>
+                <dd>Measures atmospheric pressure.</dd>
+                <dt>Thermometer:</dt>
+                <dd>Measures temperature.</dd>
+                <dt>Anemometer:</dt>
+                <dd>Measures wind speed.</dd>
+                <dt>Hygrometer:</dt>
+                <dd>Measures humidity.</dd>
+                <dt>Weather Satellites and Radars:</dt>
+                <dd>Provide valuable data for weather forecasting.</dd>
+                <h1>Weather Phenomena and Events:</h1>
+                <dt>
+                        El Niño and La Niña:</dt>
+                <dd>Climate patterns influenced by ocean temperatures.</dd>
+                <dt>Droughts and Heatwaves:</dt>
+                <dd>Prolonged periods of low precipitation and high temperatures.</dd>
+                <dt>Microbursts and Macrobursts:</dt>
+                <dd>Intense, localized downward air currents during thunderstorms.</dd>
+                <p>Understanding these details helps in comprehending the complexity of weather systems and their impact
+                        on
+                        Earth's
+                        environment. Weather is a dynamic and intricate interplay of various atmospheric elements and
+                        phenomena.</p>
+        </main>
+</body>
+
+</html>

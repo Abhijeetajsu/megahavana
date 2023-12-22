@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-Formation-Others</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffcc00, #ff66b2);
+            color: #333;
+            transition: background 0.5s ease-in-out;
+        }
+
+        header {
+            background: #3399ff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            transition: background 0.5s ease-in-out;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            transition: box-shadow 0.5s ease-in-out;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease-in-out;
+            padding: 10px;
+        }
+
+        h2 {
+            color: #ff66b2;
+            border-bottom: 2px solid #ff66b2;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            box-sizing: border-box;
+            border: 2px solid #3399ff;
+            border-radius: 10px;
+            transition: border-color 0.5s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ffcc00;
+        }
+
+        button {
+            background: #ff66b2;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.5s ease-in-out;
+        }
+
+        button:hover {
+            background: #ffcc00;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #3399ff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (hover: hover) {
+            img:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #im {
+            width: 700px;
+            height: 300px;
+        }
+
+        section,
+        img,
+        input,
+        button {
+            animation: fadeIn 1s ease;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 100vh;
+            background-color: #333;
+            padding-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            font-size: 20px;
+            font-family: sans-serif;
+            background-color: white;
+            border: 2px solid black;
+            letter-spacing: 0.1em;
+            width: 7em;
+            height: 1.5em;
+            line-height: 1.5em;
+            position: relative;
+            overflow: hidden;
+            margin: 0.5em;
+            cursor: pointer;
+        }
+
+        nav ul li span {
+            color: white;
+            mix-blend-mode: difference;
+        }
+
+        nav ul li::before {
+            content: '';
+            position: absolute;
+            width: 1.5em;
+            height: inherit;
+            background-color: black;
+            border-radius: 50%;
+            top: 0;
+            left: -0.75em;
+            transition: 0.5s ease-out;
+        }
+
+        nav ul li:hover::before {
+            transform: scale(7);
+        }
+
+        body {
+            margin-left: 500px;
+            padding-right: 300px;
+        }
+
+        body,
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(147deg, #f6f623 0%, #8dff79 74%);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            transition: background 0.5s ease-in-out;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            transition: box-shadow 0.5s ease-in-out;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        h2 {
+            color: #ff66b2;
+            border-bottom: 2px solid #ff66b2;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            box-sizing: border-box;
+            border: 2px solid #3399ff;
+            border-radius: 10px;
+            transition: border-color 0.5s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ffcc00;
+        }
+
+        button {
+            background: #ff66b2;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.5s ease-in-out;
+        }
+
+        button:hover {
+            background: #ffcc00;
+            transform: scale(1.05);
+        }
+
+        footer {
+
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding-right: 550px;
+        }
+
+        @media (hover: hover) {
+            img:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        section,
+        img,
+        input,
+        button {
+            animation: fadeIn 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><span>Home Main</span></a></li>
+            <li><a href="#home"><span>Home</span></a></li>
+            <li><a href="#tono"><span>Polar Vortex</span></a></li>
+            <li><a href="about this app.html"><span>Weather</span></a></li>
+            <li><a href="page1.html"><span>Aspects WX</span></a></li>
+            <li><a href="meterology.html"><span>Atmosphere</span></a></li>
+            <li><a href="weatherformation.html"><span>WX-O-Form?</span></a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <h1 id="home">Other-What result is Weather?</h1>
+        </header>
+        <section>
+            <h2> Thunderstorms:</h2>
+            <p>Intense local weather phenomena, thunderstorms, form when warm, moist air rises rapidly, creating strong
+                updrafts. The rapid ascent of air leads to the development of towering cumulonimbus clouds, accompanied
+                by lightning, thunder, heavy rain, and sometimes tornadoes.</p>
+            <h2>Tropical Cyclones:</h2>
+            <p>Over warm ocean waters, the heat energy causes air to rise rapidly, forming a low-pressure system. If the
+                conditions are favorable, a tropical cyclone can develop, characterized by a well-defined circulation,
+                strong winds, and heavy rainfall.</p>
+            <h2>El Niño and La Niña:</h2>
+            <p>El Niño and La Niña are phases of the El Niño-Southern Oscillation (ENSO) that significantly impact
+                global weather patterns. El Niño is associated with warmer-than-average sea surface temperatures in the
+                central and eastern Pacific, leading to altered weather patterns worldwide. La Niña is the opposite,
+                characterized by cooler-than-average sea surface temperatures.
+            </p>
+            <h2> Dust Storms:</h2>
+            <p>In arid regions, strong winds can lift and carry large amounts of dust and sand, creating dust storms.
+                These storms reduce visibility, impact air quality, and can have far-reaching effects on weather
+                patterns.</p>
+            <h2>Thermal Low:</h2>
+            <p>In hot desert regions, intense heating of the surface creates a thermal low-pressure area. This low
+                pressure can lead to the development of haboobs (dust storms) as well as influence larger weather
+                systems.</p>
+            <h2>Lake-Effect Snow:</h2>
+            <p>Near large bodies of water, such as the Great Lakes, cold air passing over warmer water can pick up
+                moisture and deposit it as heavy snowfall when it reaches the leeward side of the lake.
+            </p>
+            <h2 id="tono">Polar Vortex:</h2>
+            <p>The polar vortex is a persistent, large-scale cyclone that hovers over the Arctic or Antarctic regions.
+                Changes in the strength and position of the polar vortex can influence weather patterns in mid-latitude
+                regions. </p>
+            <h2>Radiational Cooling:</h2>
+            <p>Clear nights allow the Earth's surface to radiate heat into space, leading to radiational cooling. This
+                can result in the formation of ground frost or fog, affecting local weather conditions.</p>
+            <h2>Sea Breezes:</h2>
+            <p>Coastal areas experience sea breezes, where temperature differences between land and sea cause air to
+                move from the cooler ocean toward the warmer land during the day, and vice versa at night. This
+                phenomenon influences local weather patterns.</p>
+            <h2>Polar Front Jet:</h2>
+            <p>The polar front jet stream, located between polar and subtropical air masses, influences the formation
+                and movement of mid-latitude weather systems. Its meandering pattern contributes to the development of
+                storms.</p>
+            <br>
+            <p>Understanding these additional factors provides a more comprehensive view of the intricate processes
+                shaping our weather. Weather formation is a dynamic and interconnected system, and studying these
+                phenomena helps researchers and meteorologists make more accurate predictions and understand the broader
+                impacts of climate and atmospheric changes.</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2023 Your Website Name. All rights reserved.
+    </footer>
+</body>
+
+</html>
+
+</html>
