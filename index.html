@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meghavahana-Be Blessed</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid ">
+            <a id="home" class="navbar-brand actual" href="#"><img src="1logo.png" height="70px" alt=""><img
+                    src="name1logo.png" alt="" height="75px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active nn" aria-current="page" href="#rose" style="color:#3b82f6;">Air
+                            Quality</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nn" href="about this app.html"> Weather ?</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nn" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            About Some Locations
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item nn" href="Location.html">India</a></li>
+                            <li><a class="dropdown-item nn" href="jhansi.html">Jhansi</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item nn" href="more.html">more</a></li>
+
+                            <li><a class="dropdown-item nn" href="https://en.wikipedia.org/wiki/Global_city">More from
+                                    other site </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nn " aria="true" href="know about the website.html">Know How to Use</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 id="wd" class="my-4 text-center ">Weather for <span id="cityName">Jhansi</span></h1>
+        <main>
+            <div class="row row-cols- row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-bg-primary border-primary">
+                            <h4 class="my-0 fw-normal">Temperatures</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title"><small
+                                    class="text-body-secondary fw-light"><sup><span class="sp"
+                                            id="temp2"></span><span>&#8451;</span></sup></small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li style="color: GRAY;">Temperature is <span class="sp" id="temp"></span></li>
+                                <li style="color: GRAY;">Min Temperature is <span class="sp" id="min_temp"></span></li>
+                                <li style="color: GRAY;">Max Temperature is <span class="sp" id="max_temp"></span></li>
+                                <li style="color: GRAY;">(How hot or cold something is.)</li>
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-primary"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-bg-primary border-primary">
+                            <h4 class="my-0 fw-normal">Moisture info in air</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title"><span class="sp" id="humidity2"></span><small
+                                    class="text-body-secondary fw-light">%</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li style="color: GRAY;">Cloud Pct is <span class="sp" id="cloud_pct"></span></li>
+
+                                <li style="color: GRAY;">Feels Like is <span class="sp" id="feels_like"></span></li>
+                                <li style="color: GRAY;">Humidity is <span class="sp" id="humidity"></span></li>
+                                <li style="color: GRAY;"> (The amount of water vapor in the Air.)</li>
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-primary"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-bg-primary border-primary">
+                            <h4 class="my-0 fw-normal">Wind info</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title"><span class="sp" id="windSpeed2"></span><small
+                                    class="text-body-secondary fw-light">km/hr</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li style="color: GRAY;">Wind Speed is <span class="sp" id="wind_speed"></span></li>
+                                <li style="color: GRAY;">Wind Degree is <span class="sp" id="wind_degrees"></span></li>
+                                <li style="color: GRAY;">Sunrise Time is <span class="sp" id="sunrise"></span></li>
+                                <li style="color: GRAY;">Sunset Time is <span class="sp" id="sunset"></span></li>
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-primary"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="display-6 text-center mb-4"></h2>
+            <div class="table-responsive">
+                <table class="table text-center">
+                </table>
+            </div>
+            <button class="button" data-text="Awesome">
+                <span class="actual-text">&nbsp;WEATHER&nbsp;</span>
+                <span aria-hidden="true" class="hover-text">&nbsp;WEATHER&nbsp;</span>
+            </button>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <br>
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<embed class="emdd" src="more.html" type="" width="1200px"
+        height="500">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="rose">Air Quality Index</div>
+    <h2 id="lineker">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</h2>
+    <h2 id="aqiall" ;>Overall Aqi is <span class="sp" id="overall_aqi"></span>
+    </h2>
+    <div id="air-q" class="container20">
+        <div class="card205">
+            <div class="face20 face120">
+                <div class="content20">
+                    <img src="jas-min-sRJEcdEhyZw-unsplash.jpg">
+                    <h3>CO2</h3>
+                </div>
+            </div>
+            <div class="face20 face220">
+                <div class="content20">
+                    <p>
+                        <li style="color: GRAY;">Co2 Concentration is <span class="sp" id="co_concentration"></span>
+                        </li>
+                        <li style="color: GRAY;">Co2 Aqi is <span class="sp" id="co_aqi"></span></li>
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Carbon_dioxide">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="card205">
+            <div class="face20 face120">
+                <div class="content20">
+                    <img src="Firefly NO2 gas based image 83381.jpg" alt="">
+                    <h3>NO2</h3>
+                </div>
+            </div>
+            <div class="face20 face220">
+                <div class="content20">
+                    <p>
+                        <li style="color: GRAY;">NO2 Concentration is <span class="sp" id="no2_concentration"></span>
+                        </li>
+                        <li style="color: GRAY;">NO2 Aqi is <span class="sp" id="no2_aqi"></span></li>
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Nitrogen_dioxide">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="card205">
+            <div class="face20 face120">
+                <div class="content20">
+                    <img src="o3.png">
+                    <h3>O3</h3>
+                </div>
+            </div>
+            <div class="face20 face220">
+                <div class="content20">
+                    <p>
+                        <li style="color: GRAY;">O3 Concentration is <span class="sp" id="o3_concentration"></span></li>
+                        <li style="color: GRAY;">O3 Aqi is<span class="sp" id="o3_aqi"></span></li>
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Ozone">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container20">
+        <div class="card205">
+            <div class="face20 face120">
+                <div class="content20">
+                    <img src="PM25 particle  in city (1).png">
+                    <h3>PM25</h3>
+                </div>
+            </div>
+            <div class="face20 face220">
+                <div class="content20">
+                    <p>
+                        <li style="color: GRAY;">PM25 Concentration is <span class="sp" id="pm25_concentration"></span>
+                        </li>
+                        <li style="color: GRAY;">PM25 Aqi is<span class="sp" id="pm25_aqi"></span></li>
+                    </p>
+                    <a
+                        href="https://www.acsh.org/news/2020/04/03/air-pollution-what%E2%80%99s-so-special-about-pm25-14683">Read
+                        More</a>
+                </div>
+            </div>
+        </div>
+        <div class="card205">
+            <div class="face20 face120">
+                <div class="content20">
+                    <img src="_cca94414-c508-430d-96f0-5011d8b041a5.jpg">
+                    <h3>PM10</h3>
+                </div>
+            </div>
+            <div class="face20 face220">
+                <div class="content20">
+                    <p>
+                        <li style="color: GRAY;">PM10 Concentration is <span class="sp" id="pm10_concentration"></span>
+                        </li>
+                        <li style="color: GRAY;">PM10 Aqi is <span class="sp" id="pm10_aqi"></span></li>
+                    </p>
+                    <a href="https://www.who.int/publications/i/item/9789240034228">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="card205">
+            <div class="face20 face120">
+                <div class="content20">
+                    <img src="Firefly SO2 gas based image little realistic 99875.jpg">
+                    <h3>SO2</h3>
+                </div>
+            </div>
+            <div class="face20 face220">
+                <div class="content20">
+                    <p>
+                        <li style="color: GRAY;">SO2 Concentration is <span class="sp" id="so2_concentration"></span>
+                        </li>
+                        <li style="color: GRAY;">SO2 Aqi is <span class="sp" id="so2_aqi"></span></li>
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Sulfur_dioxide">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<br>
+<br>
+<br>
+<footer>
+    <div class="footo">
+        <h1 id="overlineod" class="overlineod">
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        </h1>
+        <h1 id="overlineo" class="overlineodd">
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        </h1>
+        <h1 style="text-decoration:underline;">
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        </h1>
+        <h1 id="yourulti">Welcome to [Meghavahana-WeatherApp] <br> - Your Ultimate Weather Hub</h1>
+        <br>
+        <h1 class="overlineodd">
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        </h1>
+        <p id="paradeco">Are you tired of scrolling through multiple weather apps and websites just to get the information you need?
+            Look no further! [Meghavahana-WeatherApp] is your one-stop destination for comprehensive weather data and air
+            quality information.
+        </p>
+        <h1 class="overlineod">
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        </h1>
+        <h2>What We Offer:</h2>
+        <br>
+        <h1 class="overlineodd">
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        </h1>
+        <h2 class="retrod">Real-time Weather Updates:</h2>
+        <p class="loker">Stay ahead of the weather with our up-to-the-minute updates. Our website fetches data from reliable APIs to
+            ensure you have the latest and most accurate information at your fingertips.</p>
+        <h2 class="retrod">Global Coverage:</h2>
+        <p class="loker">Whether you're planning a trip or just want to know what's happening in your hometown, we've got you covered.
+            Search for any city or state, and get instant access to detailed weather forecasts.</p>
+        <h2 class="retrod">Air Quality Index (AQI) Insights:</h2>
+        <p class="loker">Breathe easy by checking the air quality in your area. We provide comprehensive Air Quality Index (AQI)
+            information, helping you make informed decisions about outdoor activities.</p>
+        <h2 class="retrod">User-Friendly Interface:</h2>
+        <p class="loker">Our website is designed with you in mind. The intuitive interface makes it easy to navigate and find the
+            information you need without any hassle. We believe in providing a seamless user experience for everyone.
+        </p>
+        <h2 class="retrod">Mobile Responsive:</h2>
+        <p class="loker">Access our website from your desktop, tablet, or smartphone. We prioritize responsiveness, ensuring you can
+            check the weather on the go, wherever life takes you.</p>
+        <h1 class="overlineod">
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        </h1>
+        <h2><strong>Why Choose [Meghavahana]?</strong></h2>
+        <br>
+        <h1 class="overlineodd">
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        </h1>
+        <ul>
+            <li class="loker"><strong>Reliable Data Sources:</strong> We pull data from trusted APIs to provide you with accurate and
+                dependable information.</li>
+            <li class="loker"><strong>Easy to Use:</strong>Our user-friendly design ensures that you can access the information you
+                need without any technical hurdles.</li>
+            <li class="loker"><strong>Comprehensive Coverage:</strong>From temperature and precipitation to wind speed and air
+                quality, we cover all aspects of weather data.</li>
+            <li class="loker"><strong>Stay Informed:</strong> Receive timely alerts and updates so you're always in the know about the
+                weather conditions in your area.</li>
+            <li class="loker">[Meghavahana-WeatherApp] is not just a weather website; it's your go-to resource for all things
+                weather-related. Experience the convenience of having all the information you need in one place. Explore
+                the weather with confidence—visit us today!</li>
+            <h1 class="overlineod">
+                &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            </h1>
+            <h1 class="overlineodd">
+                &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            </h1>
+        </ul>
+    </div>
+    <p style="padding-left: 50px; color: rgb(255, 255, 255); background-color: rgba(135, 135, 135, 0.855);">  &copy; 2023 Your Website Name. All rights reserved.(The website ,Exciting times are upon us as we unfold a new chapter in our digital adventure! We are thrilled to announce that <br> [Meghavahana-WeatherApp] will be constantly evolving to bring you fresh, innovative content and features.)</p>
+ 
+
+</footer>
+
+</html>
