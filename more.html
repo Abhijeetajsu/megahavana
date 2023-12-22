@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flags and Top Photos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1px;
+        }
+
+        header:hover {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s;
+            transform: scale(1.05);
+        }
+
+        .gallery {
+            --s: 150px;
+            --g: 10px;
+            --f: 1.5;
+            display: grid;
+            gap: var(--g);
+            width: calc(8 * var(--s) + 9 * var(--g));
+            aspect-ratio: 3;
+            grid-template-columns: repeat(6, auto);
+            background-color: white;
+            padding: 15px;
+        }
+
+        .gallery>.img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s;
+        }
+
+        .gallery>.img-container:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery img {
+            width: 0;
+            height: 0;
+            min-height: 100%;
+            min-width: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            filter: grayscale(80%);
+            transition: .35s linear;
+        }
+
+        .gallery>.img-container:hover img {
+            filter: grayscale(0);
+            width: calc(var(--s) * var(--f));
+            height: calc(var(--s) * var(--f));
+        }
+
+        .img-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            color: white;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-out;
+        }
+
+        .gallery>.img-container:hover .img-caption {
+            transform: translateY(0);
+        }
+
+        #exp {}
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-content: center;
+            background: #60c4ff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="exp">Explore Popular States</h1>
+    </header>
+    <br>
+    <br>
+    <section>
+        <div class="gallery">
+            <div class="img-container">
+                <img src="Flag_of_India.svg.png" alt="a forest after an apocalypse">
+                <div class="img-caption">INDIA</div>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_France_(1794–1815,_1830–1974).svg.png" alt="big rocks with some trees">
+                <div class="img-caption">FRANCE</div>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Afghanistan_(2013–2021).svg.png"
+                    alt="a waterfall, a lot of tree and a great view from the sky">
+                <div class="img-caption">AFGHANISTAN</div>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Albania.svg.png" alt="a cool landscape">
+                <div class="img-caption">ALBANIA</div>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Algeria.svg.png" alt="sime pink flowers">
+                <div class="img-caption">Algeria</div>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Andorra_(1959–1971).svg.png" alt="a house on a mountain">
+                <div class="img-caption"> Andorra</div>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Angola.svg.png" alt="a waterfall and many rocks">
+                <div class="img-caption">Angola</div>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Antigua_and_Barbuda.svg.png" alt="inside a town between two big buildings">
+                <di class="img-caption">Antigua and Barbuda</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Argentina_(1861-2012).jpg" alt="a great view of the sea above the mountain">
+                <di class="img-caption">Argentina</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Armenia.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">Armenia</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Australia.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">Australia</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Austria_(state).svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">Austria</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Azerbaijan(2019-Present).png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">Azerbaijan</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Bangladesh.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">Bangladesh</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Belarus.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">Belarus</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Belgium_(civil).svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">Belgium</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Bhutan.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">Bhutan</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Brazil.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">Brazil</di>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="gallery">
+            <div class="img-container">
+                <img src="Flag_of_Canada_(Pantone).svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">CANADA</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Chile.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">CHILE</di>
+            </div>
+            <div class="img-container">
+                <img src="China_Flag_-_Alternative.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">CHINA</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Cuba.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">CUBA</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Denmark.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">DENMARK</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Ecuador.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">ECUADOR</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Egypt.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">EGYPT</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Finland.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">FINLAND</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Germany.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">GERMANY</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Greece_(1970-1975).svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">GREECE</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Hungary_(color_shades_variant).svg.png"
+                    alt="a great view of the sea above the mountain">
+                <di class="img-caption">HUNGARY</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Iceland.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">ICELAND</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Indonesia.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">INDONESIA</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Iran.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">IRAN</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Iraq.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">IRAQ</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Ireland.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">IRELAND</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Israel.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">ISRAEL</di>
+            </div>
+            <div class="img-container">
+                <img src="Flag_of_Japan.svg.png" alt="a great view of the sea above the mountain">
+                <di class="img-caption">JAPAN</di>
+            </div>
+        </div>
+        <br>
+        <br>
+    </section>
+</body>
+
+</html>

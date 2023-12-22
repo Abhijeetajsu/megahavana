@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        dl {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        dt {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        dd {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        html,
+        body {
+            display: grid;
+            height: 100%;
+            width: 100%;
+            place-items: center;
+            text-align: center;
+            background: linear-gradient(147deg, #f6f623 0%, #26f2b5 74%);
+        }
+
+        ::selection {
+            color: #fff;
+            background: #42ff7b;
+        }
+
+        .container {
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 30px;
+            box-shadow: 0px 0.5vh 5px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        .container .title {
+            font-size: 50px;
+            font-weight: 600;
+        }
+
+        .container p {
+            font-size: 19px;
+        }
+
+        .pagination {
+            margin: 25px 0 15px 0;
+        }
+
+        .pagination,
+        .pagination li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .pagination li {
+            background: #f23b26;
+            list-style: none;
+        }
+
+        .pagination li a {
+            text-decoration: none;
+            color: #fdfdfd;
+            height: 50px;
+            width: 50px;
+            font-size: 18px;
+            padding-top: 1px;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            border-right-width: 0px;
+            box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.35);
+        }
+
+        .pagination li:last-child a {
+            border-right-width: 1px;
+        }
+
+        .pagination li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-top-color: rgba(0, 0, 0, 0.35);
+            border-bottom-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .pagination li a:focus,
+        .pagination li a:active {
+            padding-top: 4px;
+            border-left-width: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        .pagination li.icon a {
+            min-width: 120px;
+        }
+
+        .pagination li:first-child span {
+            padding-right: 8px;
+        }
+
+        .pagination li:last-child span {
+            padding-left: 8px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80px;
+            /* Set the width of your navbar as needed */
+            height: 100vh;
+            background-color: #333;
+            /* Choose a background color for your navbar */
+            padding-top: 20px;
+            /* Adjust the top padding as needed */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Add a shadow for better visibility */
+            z-index: 1000;
+            /* Set a high z-index to make sure the navbar is on top of other elements */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            font-size: 20px;
+            font-family: sans-serif;
+            background-color: white;
+            border: 2px solid black;
+            letter-spacing: 0.1em;
+            width: 7em;
+            height: 1.5em;
+            line-height: 1.5em;
+            position: relative;
+            overflow: hidden;
+            margin: 0.5em;
+            cursor: pointer;
+            /* Choose a text color for your navbar items */
+        }
+
+        nav ul li span {
+            color: white;
+            mix-blend-mode: difference;
+        }
+
+        nav ul li::before {
+            content: '';
+            position: absolute;
+            width: 1.5em;
+            height: inherit;
+            background-color: black;
+            /* Choose a color for the circle */
+            border-radius: 50%;
+            top: 0;
+            left: -0.75em;
+            transition: 0.5s ease-out;
+        }
+
+        nav ul li:hover::before {
+            transform: scale(7);
+        }
+
+        /* Add padding to the main content to avoid overlap with the fixed navbar */
+        body {
+            margin-left: 500px;
+            padding-right: 300px;
+            /* Adjust the margin-left based on the width of your navbar */
+        }
+
+        /* Add a smooth transition effect when scrolling */
+        body,
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(147deg, #f6f623 0%, #8dff79 74%);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            transition: background 0.5s ease-in-out;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            transition: box-shadow 0.5s ease-in-out;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        h2 {
+            color: #ff66b2;
+            border-bottom: 2px solid #ff66b2;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            box-sizing: border-box;
+            border: 2px solid #3399ff;
+            border-radius: 10px;
+            transition: border-color 0.5s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ffcc00;
+        }
+
+        button {
+            background: #ff66b2;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.5s ease-in-out;
+        }
+
+        button:hover {
+            background: #ffcc00;
+            transform: scale(1.05);
+        }
+
+        footer {
+
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding-right: 550px;
+        }
+
+        @media (hover: hover) {
+            img:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        section,
+        img,
+        input,
+        button {
+            animation: fadeIn 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><span>Home Main</span></a></li>
+            <li><a href="#weather"><span>Home</span></a></li>
+            <li><a href="#climate"><span>Climate</span></a></li>
+            <li><a href="#meteorology"><span>Meteorology</span></a></li>
+            <li><a href="page1.html"><span>Aspects WX</span></a></li>
+            <li><a href="meterology.html"><span>Atmosphere</span></a></li>
+            <li><a href="weatherformation.html"><span>WX-Form?</span></a></li>
+            <li><a href="other form.html"><span>WX-O-Form?</span></a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2></h2>
+        <header id="weather">
+            <h1><strong>Weather:</strong> </h1>
+            <h2></h2>
+        </header>
+        <section>
+            <h2>Definition:</h2>
+            <p> Weather refers to the atmospheric conditions in a specific place at a specific time. It encompasses a
+                range
+                of
+                elements, including temperature, humidity, precipitation, wind speed, and atmospheric pressure. Weather
+                conditions can change rapidly, even within short time frames like hours or days.</p>
+            <h2>Key Components:</h2>
+            <h2>Temperature:</h2>
+            <p>A measure of how hot or cold the air is.
+                <br>
+                Typically measured in degrees Celsius (°C) or Fahrenheit (°F).
+            </p>
+            <h2>Humidity:</h2>
+            <p>The amount of moisture or water vapor present in the air.
+                <br>Expressed as a percentage.
+            </p>
+            <h2> Precipitation:</h2>
+            <p>Any form of water, liquid or solid, falling from the atmosphere to the Earth's surface. This includes
+                rain,snow, sleet, and hail.</p>
+            <h2>Wind Speed and Direction:</h2>
+            <p> The speed at which air is moving. <br>
+                Wind direction indicates where the wind is coming from.</p>
+            <h2>Atmospheric Pressure:</h2>
+            <p>The force exerted by the weight of the air above a given point. <br>
+                High pressure usually brings fair weather, while low pressure often brings clouds and precipitation.</p>
+            <h2>Visibility:</h2>
+            <p>The distance at which objects can be clearly seen.
+                <br>
+                Factors such as fog or heavy precipitation can reduce visibility.
+            </p>
+            <h2>Cloud Cover:</h2>
+            <p>The amount of the sky covered by clouds. <br>
+                Ranges from clear skies to completely overcast.</p>
+            <h2>Weather Forecasting:</h2>
+            <p>Meteorologists use various tools like satellites, weather balloons, radar, and computer models to predict
+                future weather conditions. Short-term forecasts cover a few hours to a few days, while long-term
+                forecasts
+                extend over weeks or months.</p>
+        </section>
+        <h2></h2>
+        <header id="climate">
+            <h1><strong>Climate:</strong></h1>
+            <h2></h2>
+        </header>
+        <section>
+            <h2>Definition:</h2>
+            <p>Climate refers to the long-term patterns and averages of weather conditions in a particular region over
+                an
+                extended period. Unlike weather, which is temporary and can change rapidly, climate represents the
+                typical atmospheric conditions that characterize a region over many years</p>
+            <h2> Key Components:</h2>
+            <h2>Temperature Range:</h2>
+            <p>Average temperatures during different seasons and the range between the highest and lowest
+                temperatures.</p>
+            <h2>Precipitation Patterns:</h2>
+            <p> Average annual rainfall or snowfall and the distribution of precipitation throughout the year.</p>
+            <h2>Humidity Levels:</h2>
+            <p>Average humidity levels over an extended period.</p>
+            <h2>Wind Patterns:</h2>
+            <p>Prevailing wind directions and intensities.</p>
+            <h2>Climate Zones:</h2>
+            <p>Earth is divided into different climate zones based on latitude, including tropical, subtropical,
+                temperate, and polar climates.</p>
+            <h2>Microclimates:</h2>
+            <p> Localized climate variations influenced by factors like topography, bodies of water, and urbanization.
+            </p>
+            <h2>Climate Change:</h2>
+            <p>Climate change refers to long-term changes in average weather patterns. While natural factors
+                contribute to climate variations, human activities, especially the burning of fossil fuels,
+                deforestation, and
+                industrial processes, have led to significant changes in global climate patterns, often referred to as
+                anthropogenic climate change.</p>
+            <h2>Summary:</h2>
+            <p> In essence, weather is the current atmospheric state at a specific time and place, while climate
+                represents
+                the long-term average of these conditions over extended periods. Understanding both is crucial for
+                making
+                predictions, planning activities, and addressing challenges related to our environment.</p>
+        </section>
+        <h2></h2>
+        <header>
+            <h1 id="meteorology"><strong>Meteorology:</strong></h1>
+            <h2></h2>
+        </header>
+        <section>
+            <p>Meteorology</strong> is the scientific study of the atmosphere, focusing on weather processes and
+                phenomena. Meteorologists use a variety of tools and techniques to observe, analyze, and predict
+                atmospheric conditions. These professionals play a crucial role in providing weather forecasts,
+                warnings, and information related to climate patterns.</p>
+
+            <h2>Key aspects of meteorology include:</h2>
+            <h3><strong>Observation:</strong></h3>
+            <p>Meteorologists use instruments like weather balloons, satellites, radar, and ground-based weather
+                stations to collect data on temperature, humidity, wind speed and direction, air pressure, and other
+                atmospheric variables.</p>
+            <h2><strong>Analysis:</strong></h2>
+            <p>Data collected from various sources are analyzed to understand current weather conditions and trends.
+                Meteorologists use computer models and simulations to interpret the complex interactions within the
+                atmosphere.</p>
+            <h2>Prediction:</h2>
+            <p>Meteorologists use their knowledge of atmospheric processes and computer models to forecast future
+                weather conditions. Weather forecasts help individuals, businesses, and governments make informed
+                decisions related to safety, agriculture, transportation, and more.</p>
+            <h2>Research:</h2>
+            <p> Meteorologists conduct research to improve our understanding of atmospheric processes, climate patterns,
+                and the impact of human activities on the environment. This research contributes to advancements in
+                climate science.</p>
+            <h2></h2>
+            <p>Meteorology is a multidisciplinary field that incorporates elements of physics, chemistry, mathematics,
+                and computer science. It plays a crucial role in our daily lives, helping us prepare for and respond to
+                various weather events.</p>
+            <h1 id="extra">Here are some additional aspects of meteorology:</h1>
+            <h2><Strong>Specializations:</Strong></h2>
+            <h2>Synoptic Meteorology:</h2>
+            <p>Focuses on the study of large-scale weather systems, including high and low-pressure systems, fronts, and
+                cyclones. Synoptic meteorologists analyze weather maps to understand and predict broad atmospheric
+                patterns.</p>
+        </section>
+        <footer>
+            &copy; 2023 Meghavahana,Weather App. All rights reserved.
+        </footer>
+
+    </main>
+</body>
+</html>

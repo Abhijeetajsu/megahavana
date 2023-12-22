@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-Formation</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffcc00, #ff66b2);
+            color: #333;
+            transition: background 0.5s ease-in-out;
+        }
+
+        header {
+            background: #3399ff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            transition: background 0.5s ease-in-out;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            transition: box-shadow 0.5s ease-in-out;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease-in-out;
+            padding: 10px;
+
+        }
+
+        h2 {
+            color: #ff66b2;
+            border-bottom: 2px solid #ff66b2;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            box-sizing: border-box;
+            border: 2px solid #3399ff;
+            border-radius: 10px;
+            transition: border-color 0.5s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ffcc00;
+        }
+
+        button {
+            background: #ff66b2;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.5s ease-in-out;
+        }
+
+        button:hover {
+            background: #ffcc00;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #3399ff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (hover: hover) {
+            img:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #im {
+            width: 700px;
+            height: 300px;
+        }
+
+        section,
+        img,
+        input,
+        button {
+            animation: fadeIn 1s ease;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 100vh;
+            background-color: #333;
+            padding-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            font-size: 20px;
+            font-family: sans-serif;
+            background-color: white;
+            border: 2px solid black;
+            letter-spacing: 0.1em;
+            width: 7em;
+            height: 1.5em;
+            line-height: 1.5em;
+            position: relative;
+            overflow: hidden;
+            margin: 0.5em;
+            cursor: pointer;
+        }
+
+        nav ul li span {
+            color: white;
+            mix-blend-mode: difference;
+        }
+
+        nav ul li::before {
+            content: '';
+            position: absolute;
+            width: 1.5em;
+            height: inherit;
+            background-color: black;
+            border-radius: 50%;
+            top: 0;
+            left: -0.75em;
+            transition: 0.5s ease-out;
+        }
+
+        nav ul li:hover::before {
+            transform: scale(7);
+        }
+
+        body {
+            margin-left: 500px;
+            padding-right: 300px;
+        }
+
+        body,
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(147deg, #f6f623 0%, #8dff79 74%);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            transition: background 0.5s ease-in-out;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            transition: box-shadow 0.5s ease-in-out;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        h2 {
+            color: #ff66b2;
+            border-bottom: 2px solid #ff66b2;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            box-sizing: border-box;
+            border: 2px solid #3399ff;
+            border-radius: 10px;
+            transition: border-color 0.5s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ffcc00;
+        }
+
+        button {
+            background: #ff66b2;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.5s ease-in-out;
+        }
+
+        button:hover {
+            background: #ffcc00;
+            transform: scale(1.05);
+        }
+
+        footer {
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding-right: 550px;
+        }
+
+        @media (hover: hover) {
+            img:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        section,
+        img,
+        input,
+        button {
+            animation: fadeIn 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><span>Home Main</span></a></li>
+            <li><a href="#home"><span>Home</span></a></li>
+            <li><a href="#tono"><span>Tonography</span></a></li>
+            <li><a href="about this app.html"><span>Weather</span></a></li>
+            <li><a href="page1.html"><span>Aspects WX</span></a></li>
+            <li><a href="meterology.html"><span>Atmosphere</span></a></li>
+            <li><a href="other form.html"><span>Other-What</span></a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <h1 id="home">What result is Weather?</h1>
+        </header>
+        <section>
+            <p>
+                <strong>Weather</strong> is the result of complex interactions between the Earth's atmosphere, oceans,
+                land surfaces, and the sun. The processes that lead to the formation of weather patterns involve the
+                movement of air masses, the influence of topography, and the transfer of heat energy.
+            </p>
+            <h1><strong>Here is a detailed overview of how weather forms:</strong></h1>
+            <br>
+            <h2> Solar Radiation:</h2>
+            <p><strong>Weather </strong>formation begins with the sun, which is the primary source of energy for the
+                Earth. The sun emits solar radiation, and the Earth receives this energy, mainly at the equator.</p>
+            <h2>Uneven Heating:</h2>
+            <p>The Earth's surface is not uniformly heated. The equator receives more direct sunlight than the poles.
+                This uneven heating creates temperature variations and pressure differences in the atmosphere.</p>
+            <h2> Air Masses:</h2>
+            <p>Warm air near the equator rises due to its lower density, creating a low-pressure zone. As air rises, it
+                cools and forms clouds, leading to precipitation. This process occurs in the tropics and contributes to
+                the creation of tropical rainforests.
+                <br>
+                Cold air at the poles sinks, creating high-pressure zones. The interaction of these air masses sets up
+                global wind patterns and circulation.
+            </p>
+            <h2>Jet Streams:</h2>
+            <p>High-altitude, fast-flowing air currents known as jet streams form due to the temperature contrast
+                between polar and tropical air masses. Jet streams influence the movement of weather systems, steering
+                storms and determining their paths.</p>
+            <h2>Coriolis Effect:</h2>
+            <p>The rotation of the Earth causes moving air masses to be deflected, creating the Coriolis effect. This
+                effect influences the direction of winds and the formation of cyclones and anticyclones.</p>
+            <h2>Fronts:</h2>
+            <p>Fronts form at the boundaries between different air masses. Warm fronts occur when warm air displaces
+                cold air, leading to gradual lifting and the formation of rain. Cold fronts involve the rapid movement
+                of cold air, creating intense, often convective, precipitation.
+            </p>
+            <h2 id="tono">Topography:</h2>
+            <p>The Earth's topography, including mountains and bodies of water, plays a significant role in weather
+                formation. Mountains can block orographic lift, leading to rain on windward slopes and creating rain
+                shadows on the leeward side. </p>
+            <h2> Ocean Currents:</h2>
+            <p>Oceans store and transport vast amounts of heat. Ocean currents influence regional climates and
+                contribute to the formation of weather patterns. Warm ocean waters can fuel tropical storms and
+                hurricanes.</p>
+            <h2>Humidity and Condensation:</h2>
+            <p>Water vapor in the air plays a crucial role. As air cools, it reaches its dew point, and water vapor
+                condenses into clouds. This process is essential for the formation of precipitation.</p>
+            <h2>Feedback Mechanisms:</h2>
+            <p>Weather patterns are dynamic and subject to feedback mechanisms. For example, melting ice reduces surface
+                reflectivity, absorbing more sunlight and accelerating warming trends.</p>
+            <br>
+            <p>In summary, the formation of weather is a complex interplay of solar radiation, atmospheric pressure,
+                wind patterns, topography, and oceanic influences. Understanding these processes helps meteorologists
+                predict and analyze the ever-changing and diverse weather conditions across the globe.</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2023 Your Website Name. All rights reserved.
+    </footer>
+</body>
+</html>
+</html>
