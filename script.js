@@ -101,6 +101,6 @@ submit.addEventListener("click", (e) => {
         }
     });
 // Initial data load
-    getWeather("Delhi");
-    getAirQuality("Delhi");
+    getWeather("Jhansi");
+    getAirQuality("Jhansi");
 });
