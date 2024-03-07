@@ -54,6 +54,18 @@
                     <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
                 </form>
+                <form id="loginForm" onsubmit="return login()">
+      <h2>Login</h2>
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
             </div>
         </div>
     </nav>
